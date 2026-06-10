@@ -132,7 +132,7 @@ output/exp402/
 ## exp001
 
 **Path:** `output/exp001/`  
-**Status:** Pending — not yet run  
+**Status:** Complete — all three sites  
 **Purpose:** First officially numbered experiment in this repository. Establishes
 the clean baseline for the ERC publication using the fully corrected input data,
 per-site tuned hyperparameters, and the fixed `dswrf` feature label.
@@ -170,9 +170,34 @@ loop_curr_sst, dswrf
 Loaded dynamically from `output/site_xgb_params.json`. Same values as exp402 —
 see that entry for the full table.
 
-### Results
+### Results (XGBoost, ±1 week tolerance, post-onset masked)
 
-*To be filled in after run.*
+Results are identical to exp402, as expected — the only change between the two
+experiments was the SHAP axis label for `dswrf`; model training is unaffected.
+
+**XGBoost**
+
+| Site | Correct Onset | Missed Onset | False Alarm | True No-Onset | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|---|
+| Sombrero | 59 / 70 (84.3%) | 11 / 70 (15.7%) | 74 / 667 (11.1%) | 593 / 667 (88.9%) | 0.444 | 0.843 | 0.581 |
+| Sand Key | 54 / 77 (70.1%) | 23 / 77 (29.9%) | 66 / 650 (10.2%) | 584 / 650 (89.9%) | 0.450 | 0.701 | 0.548 |
+| Molasses | 30 / 42 (71.4%) | 12 / 42 (28.6%) | 55 / 724 (7.6%) | 669 / 724 (92.4%) | 0.353 | 0.714 | 0.472 |
+
+**Linear**
+
+| Site | Correct Onset | Missed Onset | False Alarm | True No-Onset | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|---|
+| Sombrero | 52 / 70 (74.3%) | 18 / 70 (25.7%) | 291 / 667 (43.6%) | 376 / 667 (56.4%) | 0.152 | 0.743 | 0.252 |
+| Sand Key | 50 / 77 (64.9%) | 27 / 77 (35.1%) | 252 / 650 (38.8%) | 398 / 650 (61.2%) | 0.166 | 0.649 | 0.264 |
+| Molasses | 25 / 42 (59.5%) | 17 / 42 (40.5%) | 148 / 724 (20.4%) | 576 / 724 (79.6%) | 0.145 | 0.595 | 0.233 |
+
+**Frequency baseline**
+
+| Site | Correct Onset | Missed Onset | False Alarm | True No-Onset | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|---|
+| Sombrero | 17 / 70 (24.3%) | 53 / 70 (75.7%) | 108 / 667 (16.2%) | 559 / 667 (83.8%) | 0.136 | 0.243 | 0.174 |
+| Sand Key | 18 / 77 (23.4%) | 59 / 77 (76.6%) | 129 / 650 (19.8%) | 521 / 650 (80.2%) | 0.122 | 0.234 | 0.161 |
+| Molasses | 8 / 42 (19.0%) | 34 / 42 (81.0%) | 58 / 724 (8.0%) | 666 / 724 (92.0%) | 0.121 | 0.190 | 0.148 |
 
 ### Outputs
 
