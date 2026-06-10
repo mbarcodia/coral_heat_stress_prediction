@@ -124,6 +124,7 @@ def rename_features(feature_names):
         "meanSsta": "SST anomaly",
         "loop_curr_sst": "Loop Current Index",
         "solar_flux": "solar flux",
+        "dswrf": "solar flux",
         "week": "week of year",
     }
     new_names = []
